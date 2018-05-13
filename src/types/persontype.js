@@ -1,7 +1,8 @@
 const {
     GraphQLObjectType,
     GraphQLNonNull,
-    GraphQLString
+    GraphQLString,
+    GraphQLList
 } = require('graphql')
 
 const PersonType = new GraphQLObjectType({
@@ -9,7 +10,8 @@ const PersonType = new GraphQLObjectType({
     description: 'A person type',
     fields: () => ({
         id: {type: new GraphQLNonNull(GraphQLString)},
-        name: {type: new GraphQLNonNull(GraphQLString)}
+        name: {type: new GraphQLNonNull(GraphQLString)},
+        friends: {type: new GraphQLList(PersonType)}
     })
 })
 

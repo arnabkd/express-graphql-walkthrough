@@ -7,6 +7,8 @@ const PersonType = require('./types/persontype')
 const {
     GraphQLList,
     GraphQLObjectType,
+    GraphQLString,
+    GraphQLNonNull
 } = require('graphql')
 
 const SuitsRootQuery = new GraphQLObjectType({
@@ -16,15 +18,25 @@ const SuitsRootQuery = new GraphQLObjectType({
         allPeople: {
             type: new GraphQLList(PersonType),
             description: 'List of all People',
-            resolve: function() {
+            resolve: () => {
                 return People
             }
         },
         allLawsuits: {
             type: new GraphQLList(LawsuitType),
             description: 'List of all lawsuits',
-            resolve: function() {
+            resolve: () => {
                 return Lawsuits
+            }
+        },
+        personById: {
+            type: PersonType,
+            description: 'Gets a person by id',
+            args: {
+                id: { type : new GraphQLNonNull(GraphQLString) }
+            },
+            resolve: (rootValue, {id}) => {
+                return People.find(p => p.id === id)
             }
         }
     })

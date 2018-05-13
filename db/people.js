@@ -1,15 +1,18 @@
 const People = [
     {
-        id: '8dlx7ak38fd39dv79ad',
-        name: 'Harvey Spectre'
+        id: '1',
+        name: 'Harvey Spectre',
+        friends: []
     },
     {
-        id: 'jd3kd03d0w9a0l35rh74',
-        name: 'Mike Ross'
+        id: '2',
+        name: 'Mike Ross',
+        friends: []
     },
     {
-        id: '0hy894hf0dlkfh9oinv',
-        name: 'Jessica Pearson'
+        id: '3',
+        name: 'Jessica Pearson',
+        friends: []
     }
 ]
 
