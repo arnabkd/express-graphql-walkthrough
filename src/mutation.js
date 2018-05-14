@@ -1,14 +1,15 @@
-const People = require('../db/people')
-const Lawsuits = require('../db/lawsuits')
-const PersonType = require('./types/persontype')
-const LawsuitType = require('./types/lawsuittype')
+import People from '../db/people'
+import Lawsuits from '../db/lawsuits'
 
-const {
+import LawsuitType from './types/lawsuittype'
+import PersonType from './types/persontype'
+
+import {
     GraphQLObjectType,
     GraphQLString,
     GraphQLNonNull,
     GraphQLList
-} = require('graphql')
+} from'graphql'
 
 const SuitsRootMutation = new GraphQLObjectType({
     name: 'SuitsRootMutation',

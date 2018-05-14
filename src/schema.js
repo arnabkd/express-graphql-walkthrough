@@ -1,9 +1,9 @@
-const SuitsRootQuery = require('./query')
-const SuitsRootMutation = require('./mutation')
+import SuitsRootQuery from './query'
+import SuitsRootMutation from './mutation'
 
-const {
+import {
     GraphQLSchema
-} = require('graphql')
+} from 'graphql' 
 
 const SuitsAppSchema = new GraphQLSchema({
     query: SuitsRootQuery,

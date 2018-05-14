@@ -1,10 +1,10 @@
-const {
+import {
     GraphQLObjectType,
     GraphQLNonNull,
     GraphQLString,
     GraphQLList
-} = require('graphql')
-const PersonType = require('./persontype')
+} from 'graphql'
+import PersonType from './persontype'
 
 const LawsuitType = new GraphQLObjectType({
     name: 'Lawsuit',

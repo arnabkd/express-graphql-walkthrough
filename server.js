@@ -1,6 +1,6 @@
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
-const SuitsAppSchema = require('./src/schema')
+import SuitsAppSchema from './src/schema'
 
 const app = express()
 app.use('/graphql', graphqlHTTP({
