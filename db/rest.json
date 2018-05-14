@@ -1,0 +1,54 @@
+{
+    "people": [
+        {
+            "id": "1",
+            "name": "Harvey Spectre",
+            "email": "harvey@lawyers.com",
+            "age": 30,
+            "title": "Senior Partner",
+            "university": 1,
+            "friends": []
+        },
+        {
+            "id": "2",
+            "name": "Mike Ross",
+            "email": "mike@lawyers.com",
+            "age": 25,
+            "title": "Associate",
+            "university": 0,
+            "friends": []
+        },
+        {
+            "id": "3",
+            "name": "Jessica Pearson",
+            "email": "jessica@lawyers.com",
+            "title": "Managing Partner",
+            "university": 1,
+            "age": 34,
+            "friends": []
+        }
+    ],
+    "universities": [
+        {
+            "id" : "1",
+            "name": "Harvard Law"
+        }
+    ],
+    "lawsuits": [
+        {
+            "id": "1",
+            "description": "my first case",
+            "lawyers": []
+        },
+        {
+            "id": "2",
+            "description": "my second case",
+            "lawyers": []
+        },
+        {
+            "id": "3",
+            "description": "my third case",
+            "lawyers": []
+        }
+    ]
+}
