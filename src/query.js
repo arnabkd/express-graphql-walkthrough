@@ -29,6 +29,18 @@ const SuitsRootQuery = new GraphQLObjectType({
                 return Lawsuits
             }
         },
+        lawsuitByLawyerId: {
+            args: {
+                lawyerId: { type : new GraphQLNonNull(GraphQLString) }
+            },
+            type: new GraphQLList(LawsuitType),
+            description: 'List of all lawsuits that a lawyer is assigned to',
+            resolve: (rootValue, {lawyerId}) => {
+                return Lawsuits.filter((lawsuit) => {
+                    return lawsuit.lawyers.filter(lawyer => lawyer.id === lawyerId).length > 0
+                })
+            }
+        },
         personById: {
             type: PersonType,
             description: 'Gets a person by id',

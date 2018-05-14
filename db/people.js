@@ -6,6 +6,7 @@ const People = [
         age: 30,
         title: 'Senior Partner',
         university: 'Harvard Law',
+        address: '1 Mass. Ave',
         friends: []
     },
     {
@@ -15,6 +16,7 @@ const People = [
         age: 25,
         title: 'Associate',
         university: 'N/A',
+        address: '100 Mass. Ave',
         friends: []
     },
     {
@@ -24,6 +26,7 @@ const People = [
         title: 'Managing Partner',
         university: 'Harvard Law',
         age: 34,
+        address: '10 Mass. Ave',
         friends: []
     }
 ]
