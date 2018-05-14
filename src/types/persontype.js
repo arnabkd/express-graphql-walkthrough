@@ -2,7 +2,8 @@ import {
     GraphQLObjectType,
     GraphQLNonNull,
     GraphQLString,
-    GraphQLList
+    GraphQLList,
+    GraphQLInt
 } from 'graphql'
 
 const PersonType = new GraphQLObjectType({
@@ -11,7 +12,10 @@ const PersonType = new GraphQLObjectType({
     fields: () => ({
         id: {type: new GraphQLNonNull(GraphQLString)},
         name: {type: new GraphQLNonNull(GraphQLString)},
-        friends: {type: new GraphQLList(PersonType)}
+        friends: {type: new GraphQLList(PersonType)},
+        age: {type: new GraphQLNonNull(GraphQLInt)},
+        email: {type: new GraphQLNonNull(GraphQLString)},
+        university: {type: new GraphQLNonNull(GraphQLString)}
     })
 })
 

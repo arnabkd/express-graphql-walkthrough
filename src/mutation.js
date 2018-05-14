@@ -8,7 +8,8 @@ import {
     GraphQLObjectType,
     GraphQLString,
     GraphQLNonNull,
-    GraphQLList
+    GraphQLList,
+    GraphQLInt
 } from'graphql'
 
 const SuitsRootMutation = new GraphQLObjectType({
@@ -35,13 +36,20 @@ const SuitsRootMutation = new GraphQLObjectType({
             description: 'creates a new person',
             args: {
                 name: { type: new GraphQLNonNull(GraphQLString) },
-                id: {type: new GraphQLNonNull(GraphQLString)}
+                id: { type: new GraphQLNonNull(GraphQLString) },
+                email: { type: new GraphQLNonNull(GraphQLString) },
+                title: { type: new GraphQLNonNull(GraphQLString) },
+                age: { type: new GraphQLNonNull(GraphQLInt) },
+                university: { type: new GraphQLNonNull(GraphQLString) },
             },
-            resolve: (rootValue, {name, id}) => {
+            resolve: (rootValue, {name, id, email, age, university}) => {
                 const person = {
                     name: name,
                     id: id,
-                    friends: []
+                    friends: [],
+                    email: email,
+                    age: age,
+                    university: university
                 }
                 People.push(person)
                 return person
