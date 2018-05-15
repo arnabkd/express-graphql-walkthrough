@@ -12,6 +12,8 @@ import {
     GraphQLInt
 } from'graphql'
 
+import personExistsInList from './utils/utils'
+
 const SuitsRootMutation = new GraphQLObjectType({
     name: 'SuitsRootMutation',
     description: '...',
@@ -26,8 +28,12 @@ const SuitsRootMutation = new GraphQLObjectType({
             resolve: (rootValue, {id, friendId}) => {
                 const first = People.find(p => p.id === id)
                 const second = People.find(p => p.id === friendId)
-                first.friends.push(second)
-                second.friends.push(first)
+
+                if(!personExistsInList(first, second.friends)){
+                    first.friends.push(second)
+                    second.friends.push(first)
+                }
+
                 return [first, second]
             }
         },
@@ -80,10 +86,12 @@ const SuitsRootMutation = new GraphQLObjectType({
                 lawsuitId: {type: new GraphQLNonNull(GraphQLString)}
             },
             resolve: (rootValue, {personId, lawsuitId}) => {
-                const person = People.find(p => p.id === personId)
+                const lawyer = People.find(p => p.id === personId)
                 const lawsuit = Lawsuits.find(l => l.id === lawsuitId)
 
-                lawsuit.lawyers.push(person)
+                if(!personExistsInList(lawyer, lawsuit.lawyers)){
+                    lawsuit.lawyers.push(lawyer)
+                }
                 return lawsuit
             }
         }
